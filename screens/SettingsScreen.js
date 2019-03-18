@@ -1,14 +1,38 @@
 import React from 'react';
-import { ExpoConfigView } from '@expo/samples';
+import MapView from 'react-native-maps'
+
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: 'app.json',
+    headerTitleStyle: { 
+      textAlign:"center", 
+      flex:1 
+  },
+    title: 'Map',
   };
 
   render() {
-    /* Go ahead and delete ExpoConfigView and replace it with your
-     * content, we just wanted to give you a quick view of your config */
-    return <ExpoConfigView />;
+    return (
+      <MapView   style={{flex: 1}}
+      region={{
+          latitude: -25.971783,
+          longitude: 32.588200,
+          latitudeDelta: 0.0 ,
+          longitudeDelta: 0.001,
+      }}
+      showsUserLocation={true}
+    >
+    <MapView.Marker
+        coordinate={{latitude:-25.971783,
+        longitude:32.588200}}
+        title={"USTM Campus"}
+        description={"Universidade São Tomás de Moçambique"}
+     />
+  </MapView>
+ 
+
+    );
+  } 
+   
   }
-}
+
